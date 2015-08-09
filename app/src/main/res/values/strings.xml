@@ -1,0 +1,15 @@
+<resources>
+    <string name="app_name">DC Iguala</string>
+
+    <string name="title_section1">Enviar Noticia</string>
+    <string name="title_section2">Ultimas Noticias</string>
+    <string name="title_section3">Acerca De</string>
+    <string name="title_section4">Mapa</string>
+
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+
+    <string name="action_example">Ayuda</string>
+
+    <string name="action_settings">Acerca de</string>
+</resources>
