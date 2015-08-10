@@ -2,6 +2,7 @@ package com.example.daniel.dciguala;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.support.v4.app.FragmentActivity;
 import android.support.v7.app.ActionBarActivity;
 import android.support.v7.app.ActionBar;
 import android.support.v4.app.Fragment;
@@ -68,7 +69,9 @@ public class MainActivity extends ActionBarActivity
         // update the main content by replacing fragments
         FragmentManager fragmentManager = getSupportFragmentManager();
         Fragment fragment = null;
+
         switch(position){
+
             case 0:
                 //mapa
                 fragment = new Mapa();
