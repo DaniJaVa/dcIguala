@@ -50,6 +50,7 @@ public class Mapa extends Fragment {
             fragment = SupportMapFragment.newInstance();
             fm.beginTransaction().replace(R.id.mapa, fragment).commit();
         }
+
     }
 
     @Override
@@ -62,6 +63,8 @@ public class Mapa extends Fragment {
             map.addMarker(new MarkerOptions().position(iguala)
                     .title("Titulo Noticia")
                     .snippet("Descripcion Noticia"));}
+
+
         }
 }
 
