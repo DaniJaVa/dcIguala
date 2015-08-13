@@ -50,7 +50,6 @@ public class Mapa extends Fragment {
             fragment = SupportMapFragment.newInstance();
             fm.beginTransaction().replace(R.id.mapa, fragment).commit();
         }
-
     }
 
     @Override
@@ -62,55 +61,19 @@ public class Mapa extends Fragment {
             map.moveCamera(CameraUpdateFactory.newLatLngZoom(iguala, 15));
             map.addMarker(new MarkerOptions().position(iguala)
                     .title("Titulo Noticia")
-                    .snippet("Descripcion Noticia"));}
+                    .snippet("Descripcion Noticia"));
 
-
-        }
-}
-
-
-
-
-/*
-    private GoogleMap mMap;
-    LatLng iguala = new LatLng(18.344722, -99.539722);
-
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.mapa);
-        setUpMapIfNeeded();
-    }
-
-    @Override
-    protected void onResume() {
-        super.onResume();
-        setUpMapIfNeeded();
-    }
-
-    private void setUpMapIfNeeded() {
-        // Do a null check to confirm that we have not already instantiated the map.
-        if (mMap == null) {
-            // Try to obtain the map from the SupportMapFragment.
-            mMap = ((SupportMapFragment) getSupportFragmentManager().findFragmentById(R.id.mapa))
-                    .getMap();
-            mMap.setMyLocationEnabled(true);
-            mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(iguala, 15));
-            // Check if we were successful in obtaining the map.
-            if (mMap != null) {
-                setUpMap();
+            map.addMarker(new MarkerOptions().position(new LatLng(18.3447241, -99.5409239))
+                    .title("Asalto a mano armada")
+                    .snippet("Los sospechosos escapan en moto"));
+            if (Singleton.getTituloNoticia() != null) {
+                map.addMarker(new MarkerOptions().position(new LatLng(18.3569797, -99.5378245))
+                        .title(Singleton.getTituloNoticia())
+                        .snippet(Singleton.getDescripcionNoticia()));
             }
         }
     }
-
-    private void setUpMap() {
-        mMap.addMarker(new MarkerOptions().position(new LatLng(0, 0)).title("Marker"));
-        mMap.addMarker(new MarkerOptions().position(iguala)
-                .title("Titulo Noticia")
-                .snippet("Descripcion Noticia"));
-    }
-}*/
-
+}
 
 
 
