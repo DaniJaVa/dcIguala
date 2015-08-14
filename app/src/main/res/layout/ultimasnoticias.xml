@@ -8,7 +8,7 @@
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceLarge"
         android:text="Ultimas noticias"
-        android:id="@+id/textView3"
+        android:id="@+id/txtultimasnoticicicias"
         android:layout_gravity="center_horizontal"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true" />
@@ -17,9 +17,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceLarge"
-        android:text="Asalto a mano armada"
-        android:id="@+id/textView12"
-        android:layout_below="@+id/textView3"
+        android:id="@+id/txtTitulo"
+        android:layout_below="@+id/txtultimasnoticicicias"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
         android:focusable="false"
@@ -30,9 +29,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceLarge"
-        android:text="2 Personas abordo de una moto asaltaron local de pastelería"
-        android:id="@+id/textView13"
-        android:layout_below="@+id/textView12"
+        android:layout_below="@+id/txtTitulo"
+        android:id="@+id/txtNoticia"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true" />
 
@@ -40,22 +38,14 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceLarge"
-        android:text="Balacera en el peque"
-        android:id="@+id/textView14"
-        android:focusable="false"
-        android:textSize="35dp"
-        android:textStyle="bold"
-        android:layout_below="@+id/textView13"
+        android:id="@+id/lbNombre"
+        android:layout_below="@+id/txtNoticia"
         android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true" />
+        android:layout_alignParentStart="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
+        android:textStyle="italic"
+        android:textSize="10dp" />
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceLarge"
-        android:text="Balacera en el autolavado el peque, al parecer hay heridos"
-        android:id="@+id/textView15"
-        android:layout_below="@+id/textView14"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true" />
+
 </RelativeLayout>

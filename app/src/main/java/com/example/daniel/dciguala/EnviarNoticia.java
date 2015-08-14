@@ -1,29 +1,14 @@
 package com.example.daniel.dciguala;
 
-import android.app.Activity;
-import android.app.Application;
-import android.content.Context;
-import android.content.DialogInterface;
-import android.location.Location;
-import android.location.LocationManager;
-import android.preference.DialogPreference;
-import android.support.v4.app.Fragment;
 import android.os.Bundle;
-import android.support.v4.app.FragmentActivity;
-import android.support.v4.app.FragmentManager;
-import android.support.v4.app.FragmentTransaction;
-import android.support.v7.app.AlertDialog;
+import android.support.v4.app.Fragment;
+import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.TextView;
 import android.widget.Toast;
-
-
-import com.google.android.gms.maps.SupportMapFragment;
-import com.google.android.gms.maps.model.LatLng;
 
 /**
  * Created by Daniel on 03/08/2015.
@@ -33,13 +18,15 @@ public class EnviarNoticia extends Fragment {
     Button btnEnviar;
     EditText titulo;
     EditText noticia;
-    double lat;
-    double lon;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View rootView = inflater.inflate(R.layout.enviarnoticia, container, false);
+        Ubicacion ubicacion = new Ubicacion(getActivity().getApplicationContext());
+
+        Singleton.setLatitud(ubicacion.latitud);
+        Singleton.setLongitud(ubicacion.longitud);
         return rootView;
     }
 
@@ -50,6 +37,7 @@ public class EnviarNoticia extends Fragment {
         btnEnviar = (Button)getView().findViewById(R.id.btnEnviar);
         titulo = (EditText)getView().findViewById(R.id.txtTituloNoticia);
         noticia = (EditText)getView().findViewById(R.id.txtDescNoticia);
+
     }
 
     @Override
@@ -57,13 +45,24 @@ public class EnviarNoticia extends Fragment {
         super.onResume();
 
         btnEnviar.setOnClickListener(new View.OnClickListener(){
-            public void onClick(View v){
-            Toast toast1 = Toast.makeText(getActivity().getApplicationContext(),"Latitud: "+ lat+"Longitud: "+lon , Toast.LENGTH_SHORT);
-                toast1.show();
+            public void onClick(View v) {
+                String titulo1 = titulo.getText().toString();
+                String noticia1 = noticia.getText().toString();
 
-            Singleton.setTituloNoticia(titulo.getText().toString());
-            Singleton.setDescripcionNoticia(noticia.getText().toString());
+                if (TextUtils.isEmpty(titulo1)) {
+                    titulo.setError("Introduce un titulo");
+                } if(TextUtils.isEmpty(noticia1)) {
+                    noticia.setError("Introduce una descripcion");
+                } if(!TextUtils.isEmpty(titulo1) && !TextUtils.isEmpty(noticia1)){
+                    Singleton.setTituloNoticia(titulo.getText().toString());
+                    Singleton.setDescripcionNoticia(noticia.getText().toString());
+                    Toast toast3 = Toast.makeText(getActivity().getApplicationContext(), "Se ha publicado tu noticia", Toast.LENGTH_SHORT);
+                    toast3.show();
+                }
             }
         });
     }
 }
+
+
+

@@ -1,31 +1,16 @@
 package com.example.daniel.dciguala;
 
-import android.content.Context;
-import android.graphics.Color;
-import android.location.Location;
-import android.location.LocationManager;
 import android.os.Bundle;
-
 import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentActivity;
 import android.support.v4.app.FragmentManager;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.google.android.gms.common.ConnectionResult;
-import com.google.android.gms.common.GooglePlayServicesUtil;
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
-import com.google.android.gms.maps.MapFragment;
-import com.google.android.gms.maps.MapView;
-import com.google.android.gms.maps.MapsInitializer;
 import com.google.android.gms.maps.SupportMapFragment;
-import com.google.android.gms.maps.model.BitmapDescriptorFactory;
-import com.google.android.gms.maps.model.CircleOptions;
 import com.google.android.gms.maps.model.LatLng;
-import com.google.android.gms.maps.model.Marker;
 import com.google.android.gms.maps.model.MarkerOptions;
 
 /**
@@ -67,9 +52,9 @@ public class Mapa extends Fragment {
                     .title("Asalto a mano armada")
                     .snippet("Los sospechosos escapan en moto"));
             if (Singleton.getTituloNoticia() != null) {
-                map.addMarker(new MarkerOptions().position(new LatLng(18.3569797, -99.5378245))
-                        .title(Singleton.getTituloNoticia())
-                        .snippet(Singleton.getDescripcionNoticia()));
+                map.addMarker(new MarkerOptions().position(new LatLng(Singleton.getLatitud(),Singleton.getLongitud()))
+                        .title(Singleton.getTituloNoticia().toString())
+                        .snippet(Singleton.getDescripcionNoticia().toString()));
             }
         }
     }

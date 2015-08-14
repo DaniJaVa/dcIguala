@@ -1,16 +1,13 @@
 package com.example.daniel.dciguala;
-
-import com.google.android.gms.maps.model.LatLng;
-
-/**
- * Created by Daniel on 10/08/2015.
- */
 public class Singleton {
 
+    private static String nombre;
     private static Singleton instancia = null;
     private static String tituloNoticia;
     private static String descripcionNoticia;
-    private static LatLng ubicacion;
+    private static double latitud;
+    private static double longitud;
+    private static String fecha;
 
     //Constructor Privado
     private Singleton() {
@@ -21,6 +18,15 @@ public class Singleton {
         }
         return instancia;
     }
+
+    public static String getNombre() {
+        return nombre;
+    }
+
+    public static void setNombre(String nombre) {
+        Singleton.nombre = nombre;
+    }
+
     public static String getTituloNoticia(){
 
         return tituloNoticia;
@@ -35,12 +41,16 @@ public class Singleton {
     public static void setDescripcionNoticia(String descripcionNoticia){
         Singleton.descripcionNoticia = descripcionNoticia;
     }
-    public static LatLng getUbicacion(){
-        return ubicacion;
+    public static double getLatitud(){
+        return latitud;
     }
-    public static void setUbicacion(LatLng ubicacion){
-        Singleton.ubicacion = ubicacion;
+    public static void setLatitud(double latitud){
+        Singleton.latitud = latitud;
     }
-
-
+    public static double getLongitud(){
+        return longitud;
+    }
+    public static void setLongitud(double longitud){
+        Singleton.longitud = longitud;
+    }
 }
